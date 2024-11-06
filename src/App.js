@@ -10,6 +10,7 @@ import Cart from './pages/Cart';
 import { auth, db } from './Firebase/firebaseConfig'; 
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
+import './assets/Background.css'; // Import the CSS file with background styles
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,8 @@ const App = () => {
 
   return (
     <Router>
+      {/* Apply the rotating background to the entire app */}
+      <div className="rotating-background"></div>
       <Navbar />
       <div className="main-content">
         <Routes>
@@ -72,3 +75,4 @@ const App = () => {
 };
 
 export default App;
+

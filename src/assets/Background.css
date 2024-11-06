@@ -1,0 +1,28 @@
+/* Rotating background styles in Background.css or index.css */
+@keyframes rotateImages {
+    0% {
+        background-image: url('/src/images/cloth.png.jpg');
+    }
+    33% {
+        background-image: url('/src/images/home.png.jpg');
+    }
+    66% {
+        background-image: url('/src/images/iphone.png.jpg');
+    }
+    100% {
+        background-image: url('/src/images/iphone.png.jpg');
+    }
+}
+
+.rotating-background {
+    position: fixed; /* Keep the background fixed so it doesn't scroll with the content */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover; /* Make sure the image covers the entire screen */
+    background-position: center center; /* Center the image */
+    z-index: -1; /* Make sure the background stays behind other elements */
+    animation: rotateImages 15s infinite; /* Set the animation duration and infinite rotation */
+    object-fit: cover; /* Ensures the background image covers the screen */
+}

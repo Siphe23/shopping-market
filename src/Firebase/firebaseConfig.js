@@ -1,7 +1,8 @@
 // src/Firebase/firebaseConfig.js
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth'; // Ensure getAuth is imported here
+import { getAuth, onAuthStateChanged } from 'firebase/auth'; 
 import { getFirestore } from 'firebase/firestore';
+import { useState, useEffect } from 'react';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBVrvQu1Hq6Zi_4o_9hOUGEZenC8-FG8ow",
@@ -15,8 +16,23 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Ensure that the 'auth' and 'db' objects are exported
+// Firebase Auth and Firestore instances
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { auth, db };
+// Create a custom hook to use the authentication state
+export function useAuth() {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    return { user };
+}
+
+export { auth, db };  // Export auth and db
