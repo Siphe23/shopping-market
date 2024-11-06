@@ -1,23 +1,21 @@
-import axios from 'axios';
+// src/product-api/api.js
+const { db, storage } = require('./firebaseConfig');
+const axios = require('axios');
 
-export const uploadProduct = async (product) => {
-  try {
-    const formData = new FormData();
-    formData.append('name', product.name);
-    formData.append('description', product.description);
-    formData.append('price', product.price);
-    formData.append('category', product.category);
-    formData.append('image', product.image); // Image file
+// Upload image function
+async function uploadImage(imageFile) {
+  const bucket = storage.bucket();
+  const file = bucket.file(`images/${imageFile.originalname}`);
+  await file.save(imageFile.buffer);
+  const publicUrl = file.publicUrl();
+  return publicUrl;
+}
 
-    const response = await axios.post('http://localhost:5000/api/products', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+// Upload product data function
+async function uploadProduct(product) {
+  const productRef = db.collection('products').doc();
+  await productRef.set(product);
+  return productRef.id;
+}
 
-    return response.data;
-  } catch (error) {
-    console.error('Error uploading product:', error);
-    throw new Error('Product upload failed');
-  }
-};
+module.exports = { uploadImage, uploadProduct };

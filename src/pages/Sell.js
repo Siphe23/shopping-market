@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { uploadProduct } from '../product-api/api'; // Update if you renamed
+import ProductForm from '../pages/ProductForm';
 import axios from 'axios';
 
 const SellersForm = () => {
@@ -36,6 +37,7 @@ const SellersForm = () => {
 
   return (
     <div>
+        <ProductForm />
       <h1>Add New Product</h1>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
