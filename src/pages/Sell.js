@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { uploadImage } from '../api/api'; // Image upload function (ensure it's defined)
+import { uploadProduct } from '../product-api/api'; // Update if you renamed
 import axios from 'axios';
 
 const SellersForm = () => {
@@ -17,10 +17,8 @@ const SellersForm = () => {
     setError(null);
 
     try {
-      const imageUrl = await uploadImage(image); // Upload image and get URL
-      const product = { name, description, price: parseFloat(price), category, imageUrl };
-      
-      await axios.post('http://localhost:5000/api/products', product); // Post product to backend
+      const product = { name, description, price: parseFloat(price), category, image };
+      await uploadProduct(product); // Use updated function name
 
       // Reset form fields
       setName('');

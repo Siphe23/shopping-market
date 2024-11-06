@@ -5,22 +5,23 @@ import { getFirestore } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBVrvQu1Hq6Zi_4o_9hOUGEZenC8-FG8ow",
-    authDomain: "base-apparel-8e990.firebaseapp.com",
-    projectId: "base-apparel-8e990",
-    storageBucket: "base-apparel-8e990.firebasestorage.app",
-    messagingSenderId: "585185819949",
-    appId: "1:585185819949:web:d48a9a1ee2ebc173e067a4",
-    measurementId: "G-D2X9L4GTBR"
+    apiKey: "your-api-key",
+    authDomain: "your-auth-domain",
+    projectId: "your-project-id",
+    storageBucket: "your-storage-bucket",
+    messagingSenderId: "your-messaging-sender-id",
+    appId: "your-app-id",
+    measurementId: "your-measurement-id"
 };
 
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
 // Firebase Auth and Firestore instances
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Create a custom hook to use the authentication state
+// Custom hook to manage authentication state
 export function useAuth() {
     const [user, setUser] = useState(null);
 

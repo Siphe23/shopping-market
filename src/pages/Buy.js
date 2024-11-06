@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, updateProduct, deleteProduct } from '../slices/productSlice'; // Redux actions
-import { addProductToFirestore, updateProductInFirestore, deleteProductFromFirestore, fetchProductsFromFirestore } from '../Backend/Firebase/firebaseCRUD'; // Firebase CRUD functions
+import { addProduct, updateProduct, deleteProduct } from '../slices/productSlice'; 
+import { addProductToFirestore, updateProductInFirestore, deleteProductFromFirestore, fetchProductsFromFirestore } from '../Firebase/firebaseCRUD'; 
 
 function Buy() {
     const dispatch = useDispatch();

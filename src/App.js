@@ -7,6 +7,8 @@ import Navbar from './components/Navbar';
 import ShopList from './pages/ShopList';
 import LoginSignup from './pages/LoginSignup';
 import Cart from './pages/Cart';
+import Buy from './pages/Buy';  // Import the Buy component
+import Sell from './pages/Sell';  // Import the Sell component
 import { auth, db } from './Firebase/firebaseConfig'; 
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
@@ -66,7 +68,11 @@ const App = () => {
           
           {/* Cart route (could be protected if needed) */}
           <Route path="/cart" element={<Cart />} />
-          
+
+          {/* New Routes for Buy and Sell */}
+          <Route path="/buy" element={<Buy />} />  {/* Add Buy page */}
+          <Route path="/sell" element={<Sell />} />  {/* Add Sell page */}
+
           {/* Any other routes can be added here */}
         </Routes>
       </div>
@@ -75,4 +81,3 @@ const App = () => {
 };
 
 export default App;
-

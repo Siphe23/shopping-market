@@ -14,8 +14,9 @@ const Navbar = () => {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/shoplist">Shop List</Link></li>
-                        <li><Link to="/buy">Buy</Link></li>
-                        <li><Link to="/sell">Sell</Link></li>
+                        <Link to="/buy">Buy</Link>
+                        <Link to="/sell">Sell</Link>
+
                         <li>
                             <Link to="/login">
                                 <FaUser /> 
