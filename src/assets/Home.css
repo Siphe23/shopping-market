@@ -1,0 +1,63 @@
+
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-top: 10%;
+}
+
+.home-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: red; 
+}
+
+.home-container h1 span {
+    color: black; 
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buy-btn {
+    background-color: red;
+}
+
+.buy-btn:hover {
+    background-color: #A00000;
+}
+
+.sell-btn {
+    background-color: #85E5F5; 
+    color: black; 
+}
+
+.sell-btn:hover {
+    background-color: #5ECBD5; 
+}

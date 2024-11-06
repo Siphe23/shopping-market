@@ -1,19 +1,22 @@
-
+// src/Firebase/firebaseConfig.js
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth'; // Ensure getAuth is imported here
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY", 
-    authDomain: "YOUR_AUTH_DOMAIN", 
-    projectId: "YOUR_PROJECT_ID", 
-    storageBucket: "YOUR_STORAGE_BUCKET", 
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID", 
-    appId: "YOUR_APP_ID" 
+    apiKey: "AIzaSyBVrvQu1Hq6Zi_4o_9hOUGEZenC8-FG8ow",
+    authDomain: "base-apparel-8e990.firebaseapp.com",
+    projectId: "base-apparel-8e990",
+    storageBucket: "base-apparel-8e990.firebasestorage.app",
+    messagingSenderId: "585185819949",
+    appId: "1:585185819949:web:d48a9a1ee2ebc173e067a4",
+    measurementId: "G-D2X9L4GTBR"
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); 
+
+// Ensure that the 'auth' and 'db' objects are exported
+const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { auth, db }; 
+export { auth, db };
